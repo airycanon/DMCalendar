@@ -1,0 +1,20 @@
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th ng-repeat="week in weeks track by $index" >
+                <small>{{week}}</small>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="week in month">
+            <td ng-repeat="date in week">
+                <div >
+                    {{date | date:'yyyy-MM-dd' }}
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
