@@ -2,17 +2,15 @@
     <table class="table">
         <thead>
         <tr>
-            <th ng-repeat="week in weeks track by $index" >
-                <small>{{week}}</small>
+            <th class="calendar-cell" ng-repeat="label in weekLabels">
+                {{label}}
             </th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="week in month">
-            <td ng-repeat="date in week">
-                <div >
-                    {{date | date:'yyyy-MM-dd' }}
-                </div>
+            <td class="calendar-cell" ng-repeat="date in week">
+                {{date | date:'yyyy-MM-dd'}}
             </td>
         </tr>
         </tbody>

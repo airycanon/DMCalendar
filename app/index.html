@@ -1,44 +1,60 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="dmCalendar" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="dmCalendar" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="dmCalendar" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="dmCalendar" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html lang="en" ng-app="dmCalendar" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="dmCalendar" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="dmCalendar" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="dmCalendar" class="no-js"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>DmCalendar</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../lib/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="app.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DmCalendar</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/login">登录</a></li>
-    <li><a href="#/register">注册</a></li>
-  </ul>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class="container">
+    <div class="row control">
+        <div class="col-md-6">
+            <label>星期的第一天：</label>
 
-  <ul class="menu">
-    <li><a href="#/month">月视图</a></li>
-    <li><a href="#/week">周视图</a></li>
-    <li><a href="#/week">日视图</a></li>
-  </ul>
+            <div class="btn-group" ng-controller="monthCtrl">
+                <label class="btn btn-default" ng-model="firstDayOfWeek" btn-radio="0"
+                       ng-change="firstDayChange()">星期日</label>
+                <label class="btn btn-default" ng-model="firstDayOfWeek" btn-radio="1"
+                       ng-change="firstDayChange()">星期一</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div style="float:right">
+                <label>视图：</label>
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+                <div class="btn-group">
+                    <label class="btn btn-default" ng-model="displayMode" btn-radio="'month'">月视图</label>
+                    <label class="btn btn-default" ng-model="displayMode" btn-radio="'week'">周视图</label>
+                    <label class="btn btn-default" ng-model="displayMode" btn-radio="'day'">日视图</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-view class="row calendar"></div>
+</div>
 
-  <div ng-view></div>
-
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-  <script src="../lib/angular/angular.min.js"></script>
-  <script src="../lib/angular/angular-route.min.js"></script>
-  <script src="../lib/angular/angular-locale_zh-cn.js"></script>
-  <script src="app.js"></script>
-  <script src="login/login.js"></script>
-  <script src="register/register.js"></script>
-  <script src="components/month.js"></script>
+<script src="../lib/angular/angular.min.js"></script>
+<script src="../lib/angular/angular-route.min.js"></script>
+<script src="../lib/angular/angular-locale_zh-cn.js"></script>
+<script src="../lib/bootstrap/ui-bootstrap.min.js"></script>
+<script src="app.js"></script>
+<script src="login/login.js"></script>
+<script src="register/register.js"></script>
+<script src="components/month.js"></script>
 </body>
 </html>
