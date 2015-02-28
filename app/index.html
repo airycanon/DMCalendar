@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>DmCalendar</title>
+    <title>DMCalendar</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../lib/bootstrap/bootstrap.min.css">
@@ -21,12 +21,12 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-<div class="container">
-    <div class="row control">
+<div class="container"  ng-controller="controller">
+    <div class="row control" >
         <div class="col-md-6">
             <label>星期的第一天：</label>
 
-            <div class="btn-group" ng-controller="monthCtrl">
+            <div class="btn-group">
                 <label class="btn btn-default" ng-model="firstDayOfWeek" btn-radio="0"
                        ng-change="firstDayChange()">星期日</label>
                 <label class="btn btn-default" ng-model="firstDayOfWeek" btn-radio="1"
@@ -45,7 +45,21 @@
             </div>
         </div>
     </div>
-    <div ng-view class="row calendar"></div>
+
+    <div ng-switch on="displayMode">
+        <div class="animate-switch" ng-switch-default>
+            <ng-include src="'components/month.html'"></ng-include>
+        </div>
+        <div class="animate-switch" ng-switch-when="month">
+            <ng-include src="'components/month.html'"></ng-include>
+        </div>
+        <div class="animate-switch" ng-switch-when="week">
+            <ng-include src="'components/week.html'"></ng-include>
+        </div>
+        <div class="animate-switch" ng-switch-when="day">
+            <ng-include src="'components/day.html'"></ng-include>
+        </div>
+    </div>
 </div>
 
 <script src="../lib/angular/angular.min.js"></script>
@@ -53,8 +67,9 @@
 <script src="../lib/angular/angular-locale_zh-cn.js"></script>
 <script src="../lib/bootstrap/ui-bootstrap.min.js"></script>
 <script src="app.js"></script>
+<script src="service.js"></script>
 <script src="login/login.js"></script>
 <script src="register/register.js"></script>
-<script src="components/month.js"></script>
+<script src="controller.js"></script>
 </body>
 </html>
