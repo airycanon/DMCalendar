@@ -2,14 +2,14 @@
     <table class="table">
         <thead>
         <tr>
-            <th class="calendar-cell" ng-repeat="label in weekLabels">
+            <th class="week-header" ng-repeat="label in weekLabels">
                 {{label}}
             </th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td class="calendar-cell" ng-repeat="date in week">
+            <td class="week-cell" ng-repeat="date in week">
                 {{date | date:'yyyy-MM-dd'}}
             </td>
         </tr>

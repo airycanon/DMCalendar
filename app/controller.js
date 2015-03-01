@@ -19,4 +19,14 @@ angular.module('dmCalendar.controller', ['ui.bootstrap'])
                 service.refreshWeek(presentDay, scope.firstDayOfWeek)
             }
         }
+
+        scope.check = function (date){
+            if(date.getMonth() === presentDay.getMonth()){
+                return 'present-cell';
+            } else if(date.getMonth() < presentDay.getMonth()){
+                return 'previous-cell';
+            } else {
+                return 'next-cell';
+            }
+        }
     }]);

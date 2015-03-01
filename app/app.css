@@ -4,10 +4,11 @@
     margin-bottom: 10px;
 }
 
-.calendar{
-
+.week-header,.week-cell, .month-cell{
+    text-align: center;
+    border: 1px solid #5ea5dd;
 }
 
-.calendar-cell{
-    text-align: center;
+.previous-cell,.next-cell{
+    background: rgba(202, 198, 194, 0.60);
 }
