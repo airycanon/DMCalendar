@@ -1,14 +1,29 @@
 
-.control{
-    margin-top: 10px;
-    margin-bottom: 10px;
+.control-left{
+    float: left;
+    margin:10px 0;
 }
 
-.week-header,.week-cell, .month-cell{
+.control-middle{
+    display: table;
+    margin:10px auto;
+}
+
+.control-right{
+    float: right;
+    margin:10px 0;
+}
+
+.month-header-cell, .month-body-cell{
     text-align: center;
-    border: 1px solid #5ea5dd;
+    border: 1px solid #5ea5dd !important;
 }
 
-.previous-cell,.next-cell{
+.previous-month-cell,
+.next-month-cell{
     background: rgba(232, 227, 223, 0.60);
+}
+
+.current-cell{
+    background: rgba(94, 165, 221, 0.60);
 }

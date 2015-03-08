@@ -21,27 +21,29 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-<div class="container"  ng-controller="controller">
-    <div class="row control" >
-        <div class="col-md-6">
-            <label>星期的第一天：</label>
-
-            <div class="btn-group">
+<div class="container" ng-controller="controller">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="btn-group control-left">
                 <label class="btn btn-default" ng-model="firstDayOfWeek" btn-radio="0"
                        ng-change="firstDayChange()">星期日</label>
                 <label class="btn btn-default" ng-model="firstDayOfWeek" btn-radio="1"
                        ng-change="firstDayChange()">星期一</label>
             </div>
         </div>
-        <div class="col-md-6">
-            <div style="float:right">
-                <label>视图：</label>
-
-                <div class="btn-group">
-                    <label class="btn btn-default" ng-model="displayMode" btn-radio="'month'">月视图</label>
-                    <label class="btn btn-default" ng-model="displayMode" btn-radio="'week'">周视图</label>
-                    <label class="btn btn-default" ng-model="displayMode" btn-radio="'day'">日视图</label>
-                </div>
+        <div class="col-md-4">
+            <div class="btn-group control-middle">
+                <label class="btn btn-default">&lt;&lt;</label>
+                <label class="btn btn-default">&lt;</label>
+                <label class="btn btn-default">&gt;</label>
+                <label class="btn btn-default">&gt;&gt;</label>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="btn-group control-right">
+                <label class="btn btn-default" ng-model="displayMode" btn-radio="'month'">月视图</label>
+                <label class="btn btn-default" ng-model="displayMode" btn-radio="'week'">周视图</label>
+                <label class="btn btn-default" ng-model="displayMode" btn-radio="'day'">日视图</label>
             </div>
         </div>
     </div>
