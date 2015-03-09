@@ -13,7 +13,9 @@ angular.module('dmCalendar.service', [])
         service.refreshMonth = function (date, firstDayOfWeek) {
             var start = new Date(date.getTime());
             start.setDate(1);
-            start.setTime(start.getTime() - 1000 * 24 * 60 * 60 * (7 - firstDayOfWeek));
+            var count = start.getDay() - firstDayOfWeek;
+            count = count === 0 ? 7:count;
+            start.setTime(start.getTime() - 1000 * 24 * 60 * 60 * count);
 
             for (var i = 0; i < 42; i++) {
                 var tempDate = new Date(start.getTime());

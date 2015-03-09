@@ -33,10 +33,11 @@
         </div>
         <div class="col-md-4">
             <div class="btn-group control-middle">
-                <label class="btn btn-default">&lt;&lt;</label>
-                <label class="btn btn-default">&lt;</label>
-                <label class="btn btn-default">&gt;</label>
-                <label class="btn btn-default">&gt;&gt;</label>
+                <label class="btn btn-default" ng-click="previousYear()">&lt;&lt;</label>
+                <label class="btn btn-default" ng-click="previousMonth()">&lt;</label>
+                <label class="month-title" ng-bind="present | date:'yyyy年MM月'"></label>
+                <label class="btn btn-default" ng-click="nextMonth()">&gt;</label>
+                <label class="btn btn-default" ng-click="nextYear()">&gt;&gt;</label>
             </div>
         </div>
         <div class="col-md-4">

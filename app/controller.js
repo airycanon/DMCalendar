@@ -7,32 +7,66 @@ angular.module('dmCalendar.controller', ['ui.bootstrap'])
         scope.month = service.month;
         scope.weekLabels = service.weekLabels;
         scope.week = service.week;
+        scope.current = new Date();
+        scope.present = new Date();
 
-        var presentDay = new Date();
-        service.refreshMonth(presentDay, scope.firstDayOfWeek);
-        service.refreshWeek(presentDay, scope.firstDayOfWeek);
+        service.refreshMonth(scope.present, scope.firstDayOfWeek);
+        service.refreshWeek(scope.present, scope.firstDayOfWeek);
 
         scope.firstDayChange = function () {
             if(scope.displayMode === "month"){
-                service.refreshMonth(presentDay, scope.firstDayOfWeek);
+                service.refreshMonth(scope.present, scope.firstDayOfWeek);
             } else if(scope.displayMode === "week") {
-                service.refreshWeek(presentDay, scope.firstDayOfWeek)
+                service.refreshWeek(scope.present, scope.firstDayOfWeek)
             }
         }
 
         scope.checkMonth = function (date){
             var className = "";
-            if(date.getYear() == presentDay.getYear() && date.getMonth() == presentDay.getMonth() && date.getDate() == presentDay.getDate()){
+            if(date.getYear() == scope.current.getFullYear() && date.getMonth() == scope.current.getMonth() && date.getDate() == scope.current.getDate()){
                 className += "current-cell ";
             }
-            if(date.getMonth() === presentDay.getMonth()){
+            if(date.getMonth() === scope.present.getMonth()){
                 className += 'present-month-cell';
-            } else if(date.getMonth() < presentDay.getMonth()){
+            } else if(date.getMonth() < scope.present.getMonth()){
                 className +=  'previous-month-cell';
             } else {
                 className += 'next-month-cell';
             }
-
             return className;
+        }
+
+        scope.nextMonth = function (){
+            var month = scope.present.getMonth();
+            var year = scope.present.getFullYear();
+            if(month === 11){
+                scope.present.setFullYear(year + 1);
+                scope.present.setMonth(0);
+            } else {
+                scope.present.setMonth(month + 1);
+            }
+            service.refreshMonth(scope.present, scope.firstDayOfWeek);
+        }
+
+        scope.nextYear = function (){
+            scope.present.setFullYear(scope.present.getFullYear() + 1);
+            service.refreshMonth(scope.present, scope.firstDayOfWeek);
+        }
+
+        scope.previousMonth = function(){
+            var month = scope.present.getMonth();
+            var year = scope.present.getFullYear();
+            if(month === 0){
+                scope.present.setFullYear(year - 1);
+                scope.present.setMonth(11);
+            } else {
+                scope.present.setMonth(month - 1);
+            }
+            service.refreshMonth(scope.present, scope.firstDayOfWeek);
+        }
+
+        scope.previousYear = function (){
+            scope.present.setFullYear(scope.present.getFullYear() - 1);
+            service.refreshMonth(scope.present, scope.firstDayOfWeek);
         }
     }]);
