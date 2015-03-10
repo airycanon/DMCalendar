@@ -50,6 +50,13 @@ angular.module('dmCalendar.controller', ['ui.bootstrap'])
             service.refreshMonth(scope.present, scope.firstDayOfWeek);
         }
 
+        scope.changeWeek = function(incOrDec){
+            var offset = incOrDec ? 7:-7;
+            var time = scope.present.getTime();
+            scope.present.setTime(time + offset * 60 * 60 * 24 * 1000);
+            service.refreshWeek(scope.present, scope.firstDayOfWeek);
+        }
+
         scope.changeYear = function (incOrDec){
             var offset = incOrDec ? 1:-1;
             scope.present.setFullYear(scope.present.getFullYear() + offset);
