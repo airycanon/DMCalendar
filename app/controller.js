@@ -23,10 +23,10 @@ angular.module('dmCalendar.controller', ['ui.bootstrap'])
 
         scope.checkMonth = function (date){
             var className = "";
-            if(date.getYear() == scope.current.getFullYear() && date.getMonth() == scope.current.getMonth() && date.getDate() == scope.current.getDate()){
+            if(date.getFullYear() == scope.current.getFullYear() && date.getMonth() == scope.current.getMonth() && date.getDate() == scope.current.getDate()){
                 className += "current-cell ";
             }
-            if(date.getMonth() === scope.present.getMonth()){
+             else if(date.getMonth() === scope.present.getMonth()){
                 className += 'present-month-cell';
             } else if(date.getMonth() < scope.present.getMonth()){
                 className +=  'previous-month-cell';
