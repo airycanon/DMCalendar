@@ -1,4 +1,3 @@
-
 .control-left{
     float: left;
     margin:10px 0;
@@ -37,10 +36,7 @@
     border: 1px solid #ccc;
 }
 
-.month-header-cell,
-.month-body-cell,
-.week-header-cell,
-.week-body-cell{
+.month-header-cell, .month-body-cell{
     text-align: center;
     border: 1px solid #5ea5dd !important;
 }
