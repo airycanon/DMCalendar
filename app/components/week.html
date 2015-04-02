@@ -2,15 +2,15 @@
     <table class="table">
         <thead>
         <tr>
-            <th class="week-header" ng-repeat="label in weekLabels">
+            <th class="{{displayMode}}-header-cell" ng-repeat="label in weekLabels">
                 {{label}}
             </th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td class="week-cell" ng-repeat="date in week">
-                {{date | date:'yyyy-MM-dd'}}
+            <td class="{{displayMode}}-body-cell" ng-repeat="date in week" ng-class="checkMonth(date)">
+                {{date | date:'dd'}}
             </td>
         </tr>
         </tbody>
